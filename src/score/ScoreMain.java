@@ -14,13 +14,11 @@ public class ScoreMain {
 
 			switch (scanner.nextInt()) {
 			case 1:
-			// ID가 존재해야만 성적 입력 가능
-			// 존재하지 않으면 메세지 전달
 				System.out.println("아이디 입력");
 				String input = scanner.next();
 				if (service.searchByUserid(input).getUserid() == null) {
 					System.out.println("존재하지 않습니다.");
-					break;  // 다시 처음 입력명령문으로 되돌아감
+					break;  
 				}
 				System.out.println("java, jsp, html, "
 						+ "javascript, oracle, spring");

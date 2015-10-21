@@ -100,15 +100,13 @@ public class ScoreVO implements SQL,Serializable{
 	
 	@Override
 	public String toString() {
-		return "회원 [시퀀스=" + this.score_seq
-				+ ", 아이디=" + userid
-				+ ", java점수=" + java
-				+ ", jsp점수=" + jsp
-				+ ", html점수=" + html
-				+ ", javascript점수=" + javascript
-				+ ", oracle점수=" + oracle
-				+ ", spring점수=" + spring
-				+ "]";
+		return "회원 [아이디=" +userid+ ", "
+				+ "java점수=" +java+ ","
+				+ "jsp점수=" +jsp+ ", "
+				+ "html점수=" +html+ ", "
+				+ "javascript점수=" +javascript+ ", "
+				+ "oracle점수=" +oracle+ ", "
+				+ "spring점수=" +spring+ "]";
 	}
 	
 	@Override
@@ -171,5 +169,13 @@ public class ScoreVO implements SQL,Serializable{
 	public int getTotal(){
 		return 0;
 	}
+	public String searchByName(String name) {
+		String query = "select * from Member m inner join "
+				+ "Score s on m.name where m.name ="+this.make(name);
+		return query;
+	}
+//	select * from Member m inner join Score s
+//	on m.userid = s.userid
+//	where m.userid = 'hong';
 
 }

@@ -130,10 +130,31 @@ public class ScoreDAO extends DAO{
 		}
 		return list;
 	}
-
+	
 	@Override
 	public int count() {
 		return 0;
+	}
+	public ScoreVO searchByName(String name) {
+		ScoreVO temp = new ScoreVO();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(score.searchByName(name));
+			while (rs.next()) { 
+				temp.setScore_seq(rs.getInt("score_seq"));
+				temp.setUserid(rs.getString("userid"));
+				temp.setJava(rs.getInt("java"));
+				temp.setJsp(rs.getInt("jsp"));
+				temp.setHtml(rs.getInt("html"));
+				temp.setJavascript(rs.getInt("javascript"));
+				temp.setOracle(rs.getInt("oracle"));
+				temp.setSpring(rs.getInt("spring"));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return temp;
 	}
 
 }

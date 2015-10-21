@@ -44,7 +44,7 @@ public class ScoreServiceImpl implements ScoreService{
 	@Override
 	public ScoreVO searchByName(String name) {
 		ScoreVO m = new ScoreVO();
-		m =dao.selectOneby(name);	
+		m =dao.searchByName(name);	
 		return m;
 	}
 
